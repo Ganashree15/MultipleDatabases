@@ -33,31 +33,33 @@ So here, I have created a simple Entity Classes which maps to two different data
   We have an annotation driven **TransactionManager** with a bean id called *transactionManagerA* and *transactionManagerB* for each different Entity, with a class **JPA TranasactionManager** and also has a property name **EntityManagerFactory** which refers to two different *EntityManagerFactoryA* and *EntityManagerFactoryB*.
   
   We do have a bean which connects to Databases. The bean looks like:
-       <bean id="dataSourceB" class="org.apache.commons.dbcp.BasicDataSource">
-          <property name="username" value="username" />
-		      <property name="password" value="password" />
-		      <property name="driverClassName" value="org.postgresql.Driver" />
-		      <property name="url" value="url which connects to databases" />
-	     </bean>
+  
+      <bean id="dataSourceB" class="org.apache.commons.dbcp.BasicDataSource">
+     	<property name="username" value="username" />
+     	<property name="password" value="password" />
+	<property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="url which connects to databases" />
+      </bean> 
   
   we also have another bean which connects to the EntityManager
-          <bean id="entityManagerFactoryA"
-		          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		          <property name="dataSource" ref="dataSourceA" />
-	          	<property name="persistenceUnitName" value="PersistenceUnitA" />
-		          <property name="jpaVendorAdapter">
-			    <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-			      	<property name="generateDdl" value="false" />
-				      <property name="showSql" value="true" />
-				      <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
-			    </bean>
-		        </property>
-	          	<property name="jpaProperties">
-		            <props>
-				        <prop key="hibernate.hbm2ddl.auto">update</prop>
-		          	</props>
-		          </property>
-		      </bean>    
+   
+      <bean id="entityManagerFactoryA"
+         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+         <property name="dataSource" ref="dataSourceA" />
+         <property name="persistenceUnitName" value="PersistenceUnitA" />
+	 <property name="jpaVendorAdapter">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+	 <property name="generateDdl" value="false" />
+       	 <property name="showSql" value="true" />
+	 <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
+      </bean>
+         </property>
+	 <property name="jpaProperties">
+         <props>
+         <prop key="hibernate.hbm2ddl.auto">update</prop>
+         </props>
+         </property>
+      </bean>    
   
   
   
