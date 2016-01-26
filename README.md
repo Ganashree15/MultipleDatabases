@@ -37,7 +37,7 @@ So here, I have created a simple Entity Classes which maps to two different data
       <bean id="dataSourceB" class="org.apache.commons.dbcp.BasicDataSource">
      	<property name="username" value="username" />
      	<property name="password" value="password" />
-	<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="driverClassName" value="org.postgresql.Driver" />
         <property name="url" value="url which connects to databases" />
       </bean> 
   
@@ -47,14 +47,14 @@ So here, I have created a simple Entity Classes which maps to two different data
          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
          <property name="dataSource" ref="dataSourceA" />
          <property name="persistenceUnitName" value="PersistenceUnitA" />
-	 <property name="jpaVendorAdapter">
+	 	<property name="jpaVendorAdapter">
       <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-	 <property name="generateDdl" value="false" />
+	 	<property name="generateDdl" value="false" />
        	 <property name="showSql" value="true" />
-	 <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
+	 	<property name="databasePlatform" value="org.hibernate.dialect.PostgreSQLDialect" />
       </bean>
          </property>
-	 <property name="jpaProperties">
+	 	<property name="jpaProperties">
          <props>
          <prop key="hibernate.hbm2ddl.auto">update</prop>
          </props>
